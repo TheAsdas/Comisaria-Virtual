@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="100sp"
+        android:src="@drawable/pngicon"
+        android:translationZ="1px"
+        app:srcCompat="@drawable/pngicon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200sp"
+        android:layout_marginTop="-80dp"
+        android:background="@color/pacoClaro">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto"
+            android:text="Comisaría Virtual"
+            android:textAlignment="center"
+            android:textColor="@color/paco"
+            android:textSize="50dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
+        android:gravity="center"
+    >
+        <Button
+            android:id="@+id/gotoPermisos"
+            app:icon="@drawable/ic_permiso"
+            android:text="Sacar permiso"
+            android:layout_width="match_parent"
+            style="@style/GreenButton"
+        />
+
+        <Button
+            android:id="@+id/gotoPersonas"
+            android:layout_width="match_parent"
+            android:text="Personas"
+            app:icon="@drawable/ic_personas"
+            style="@style/OutlinedGreenButton"
+        />
+
+        <Button
+            android:id="@+id/gotoDirecciones"
+            android:layout_width="match_parent"
+            android:text="Mis direcciones"
+            app:icon="@drawable/ic_direcciones"
+            style="@style/OutlinedGreenButton"
+        />
+
+    </LinearLayout>
+
+
+</LinearLayout>
