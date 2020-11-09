@@ -4,58 +4,166 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
 
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
-
-        android:layout_height="192dp"
-        android:layout_width="match_parent">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:toolbarId="@+id/toolbar"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
-
-            app:contentScrim="?attr/colorPrimary">
-
-            <ImageView
-                android:id="@+id/app_bar_image"
-                android:layout_width="163dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-
-                android:contentDescription="@string/big_icon"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_big_person"
-                app:layout_collapseMode="parallax" />
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:navigationIcon="@drawable/abc_vector_test"></androidx.appcompat.widget.Toolbar>
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
 
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-        <LinearLayout
-            android:id="@+id/main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="visible" />
+            android:layout_height="wrap_content">
 
-    </androidx.core.widget.NestedScrollView>
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
+
+                app:toolbarId="@+id/toolbar">
+
+                <ImageView
+                    android:id="@+id/app_bar_image"
+                    android:layout_width="165dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+
+                    android:contentDescription="@string/big_icon"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_big_person"
+                    app:layout_collapseMode="parallax" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:navigationIcon="@drawable/ic_back_arrow"></androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/data_tab" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/tabAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address_tab" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/dataLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginRight="40sp"
+                android:orientation="vertical"
+                android:scrollbars="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:id="@+id/inputNames"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20sp"
+                    android:hint="@string/input_names">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLastNames"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20sp"
+                    android:hint="@string/input_last_names">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputRut"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20sp"
+                    android:hint="@string/input_rut">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputRutId"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20sp"
+                    android:hint="@string/input_rut_id">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RadioGroup
+                    android:id="@+id/genderRadios"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="@string/hombre" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:elegantTextHeight="false"
+                        android:text="@string/mujer"
+                        android:textDirection="rtl" />
+                </RadioGroup>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

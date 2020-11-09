@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Comisaría Virtual</string>
     <string name="big_icon">Un ícono con una persona.</string>
+    <string name="data_tab">Datos</string>
+    <string name="address_tab">Domicilio</string>
+    <string name="input_names">Primer y segundo nombre</string>
+    <string name="input_last_names">Apellido paterno y materno</string>
+    <string name="input_rut">RUT</string>
+    <string name="input_rut_id">Número de serie</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
 </resources>

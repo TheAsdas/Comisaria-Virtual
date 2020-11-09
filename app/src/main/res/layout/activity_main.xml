@@ -19,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="200sp"
         android:layout_marginTop="-80dp"
-        android:background="@color/pacoClaro">
+        android:background="@color/colorLight">
 
         <TextView
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:fontFamily="@font/roboto"
             android:text="Comisaría Virtual"
             android:textAlignment="center"
-            android:textColor="@color/paco"
+            android:textColor="@color/colorAccent"
             android:textSize="50dp" />
 
 
@@ -52,11 +52,11 @@
 
         <Button
             android:id="@+id/gotoPersonas"
-            android:layout_width="match_parent"
-            android:text="Personas"
-            app:icon="@drawable/ic_personas"
             style="@style/OutlinedGreenButton"
-        />
+            android:layout_width="match_parent"
+            android:onClick="gotoPersonas"
+            android:text="Personas"
+            app:icon="@drawable/ic_personas" />
 
         <Button
             android:id="@+id/gotoDirecciones"

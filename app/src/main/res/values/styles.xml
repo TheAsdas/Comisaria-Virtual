@@ -16,12 +16,12 @@
     </style>
 
     <style name="OutlinedGreenButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <item name="strokeColor">@color/paco</item>
+        <item name="strokeColor">@color/colorPrimaryDark</item>
         <item name="strokeWidth">5px</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="cornerRadius">100px</item>
-        <item name="android:textColor">@color/gris</item>
-        <item name="iconTint">@color/paco</item>
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="iconTint">@color/colorPrimaryDark</item>
         <item name="iconSize">30dp</item>
     </style>
 
