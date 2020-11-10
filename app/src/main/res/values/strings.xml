@@ -9,4 +9,16 @@
     <string name="input_rut_id">Número de serie</string>
     <string name="hombre">Hombre</string>
     <string name="mujer">Mujer</string>
+    <string name="personas">Personas</string>
+    <string name="direcciones">Direcciones</string>
+    <string name="buscar">Buscar</string>
+    <string name="buscar_desc">Buscar un ítem de la lista.</string>
+    <string name="editar">Editar</string>
+    <string name="editar_desc">Editar el ítem seleccionado.</string>
+    <string name="icon_frame">Borde círcular que contiene un ícono.</string>
+    <string name="map_marker_icon_desc">Ícono de un marcador de ruta.</string>
+    <string name="map_icon_desc">Ícono de un mapa.</string>
+    <string name="rut_placeholder">xx.xxx.xxx-x</string>
+    <string name="long_placeholder">XXXXXXXXXXXXXX</string>
+    <string name="short_placeholder">XXXXXXX</string>
 </resources>

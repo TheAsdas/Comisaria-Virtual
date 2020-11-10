@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
-
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -44,7 +43,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    app:navigationIcon="@drawable/ic_back_arrow"></androidx.appcompat.widget.Toolbar>
+                    app:navigationIcon="@drawable/ic_back_arrow"/>
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -82,7 +81,8 @@
                 android:layout_marginTop="20sp"
                 android:layout_marginRight="40sp"
                 android:orientation="vertical"
-                android:scrollbars="horizontal">
+                android:scrollbars="horizontal"
+                android:paddingBottom="100dp">
 
                 <com.google.android.material.textfield.TextInputLayout
 
@@ -163,6 +163,13 @@
             </LinearLayout>
         </ScrollView>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-80dp"
+            android:layout_gravity="center"
+            style="@style/FloatingButtonStyle"
+            android:src="@drawable/ic_save"/>
     </LinearLayout>
 
 

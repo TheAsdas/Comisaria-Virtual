@@ -25,4 +25,49 @@
         <item name="iconSize">30dp</item>
     </style>
 
+    <style name="ToolbarStyle">
+        <item name="titleTextColor">@color/colorWhite</item>
+    </style>
+
+    <style name="FloatingButtonStyle">
+        <item name="tint">@color/colorWhite</item>
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+    </style>
+
+    <style name="NameTextStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textSize">35dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="RutTextStyle">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textSize">21dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="SmallTitle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="SmallSubtitle">
+        <item name="android:textColor">@color/colorGray</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>
