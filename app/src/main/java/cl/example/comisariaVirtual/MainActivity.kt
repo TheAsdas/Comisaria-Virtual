@@ -3,10 +3,7 @@ package cl.example.comisariaVirtual
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.preference.PreferenceManager
 import android.view.View
-import android.webkit.*
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     {
         val intent = Intent(
             this,
-            EditorPersonas::class.java
+            PersonEditor::class.java
         )
 
         startActivity(intent);
