@@ -21,4 +21,19 @@
     <string name="rut_placeholder">xx.xxx.xxx-x</string>
     <string name="long_placeholder">XXXXXXXXXXXXXX</string>
     <string name="short_placeholder">XXXXXXX</string>
+    <string name="direction_tab">Dirección</string>
+    <string name="input_nombre">Nombre del lugar</string>
+    <string name="radio_health">Establecimiento de salud</string>
+    <string name="radio_buy">Compra de insumos</string>
+    <string name="radio_diligences">Diligencias</string>
+    <string name="radio_other">Otro</string>
+    <string name="info_title">¿No sabes dónde está tu número de serie?</string>
+    <string name="info_new">Si tienes un carnet nuevo...</string>
+    <string name="info_front">...búscalo por delante.</string>
+    <string name="info_old">Si tienes un carnet antiguo...</string>
+    <string name="info_back">...búscalo por atrás.</string>
+    <string name="info_button">¡Lo encontré!</string>
+    <string name="add_button_desc">Un botón para crear ítems.</string>
+    <string name="id_front_desc">Carnet de Identidad nuevo por el frente.</string>
+    <string name="id_back_desc">Carnet de Identidad antiguo por detrás.</string>
 </resources>

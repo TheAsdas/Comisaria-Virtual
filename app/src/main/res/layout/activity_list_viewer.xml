@@ -18,19 +18,23 @@
             android:layout_height="wrap_content"
             app:menu="@menu/list_toolbar"
             app:navigationIcon="@drawable/ic_back_arrow"
-            app:title="@string/personas" />
+            app:title="@string/short_placeholder" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/buttonAdd"
+        style="@style/FloatingButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
+        android:contentDescription="@string/add_button_desc"
         android:foregroundGravity="bottom"
-        app:srcCompat="@drawable/ic_small_add"
-        style="@style/FloatingButtonStyle"/>
+        android:rotation="-0"
+        android:rotationX="-0"
+        android:rotationY="0"
+        app:srcCompat="@drawable/ic_small_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
