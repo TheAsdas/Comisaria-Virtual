@@ -39,4 +39,6 @@
     <string name="end_1">¡Permiso generado!</string>
     <string name="end_2">Este se ha enviado a su correo.</string>
     <string name="end_3">Toque en cualquier lado para volver.</string>
+    <string name="appbar_select_data">Seleccione sus datos</string>
+    <string name="button_continue">Continuar</string>
 </resources>
