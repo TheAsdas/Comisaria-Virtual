@@ -95,4 +95,15 @@
         <item name="android:textAlignment">center</item>
     </style>
 
+    <style name="EndText">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>

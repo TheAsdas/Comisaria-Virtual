@@ -36,4 +36,7 @@
     <string name="add_button_desc">Un botón para crear ítems.</string>
     <string name="id_front_desc">Carnet de Identidad nuevo por el frente.</string>
     <string name="id_back_desc">Carnet de Identidad antiguo por detrás.</string>
+    <string name="end_1">¡Permiso generado!</string>
+    <string name="end_2">Este se ha enviado a su correo.</string>
+    <string name="end_3">Toque en cualquier lado para volver.</string>
 </resources>
