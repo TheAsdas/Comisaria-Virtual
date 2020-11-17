@@ -1,9 +1,10 @@
-package cl.example.comisariaVirtual
+package cl.carabineros.comisariaVirtual
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import cl.example.comisariaVirtual.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -11,13 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DataPicker"></activity>
-        <activity android:name=".EndScreen" />
-        <activity android:name=".InfoScreen" />
-        <activity android:name=".ListViewer" />
-        <activity android:name=".ItemViewer" />
-        <activity android:name=".PersonEditor" />
-        <activity android:name=".MainActivity">
+        <activity android:name="cl.carabineros.comisariaVirtual.DataPicker"></activity>
+        <activity android:name="cl.carabineros.comisariaVirtual.EndScreen" />
+        <activity android:name="cl.carabineros.comisariaVirtual.InfoScreen" />
+        <activity android:name="cl.carabineros.comisariaVirtual.ListViewer" />
+        <activity android:name="cl.carabineros.comisariaVirtual.ItemViewer" />
+        <activity android:name="cl.carabineros.comisariaVirtual.PersonEditor" />
+        <activity android:name="cl.carabineros.comisariaVirtual.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

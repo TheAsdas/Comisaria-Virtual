@@ -157,6 +157,9 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="0.5"
                         android:elegantTextHeight="false"
+                        android:rotation="0"
+                        android:rotationX="0"
+                        android:rotationY="0"
                         android:text="@string/mujer"
                         android:textDirection="rtl" />
                 </RadioGroup>
@@ -164,12 +167,17 @@
         </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            style="@style/FloatingButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-80dp"
             android:layout_gravity="center"
-            style="@style/FloatingButtonStyle"
-            android:src="@drawable/ic_save"/>
+            android:layout_marginTop="-80dp"
+            android:contentDescription="@string/add_button_desc"
+            android:rotation="0"
+            android:rotationX="0"
+            android:rotationY="0"
+            android:scaleX="2"
+            android:src="@drawable/ic_save" />
     </LinearLayout>
 
 
