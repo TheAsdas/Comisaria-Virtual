@@ -135,12 +135,14 @@
         </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/save_button"
+            style="@style/FloatingButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-80dp"
             android:layout_gravity="center"
-            style="@style/FloatingButtonStyle"
-            android:src="@drawable/ic_save"/>
+            android:layout_marginTop="-80dp"
+            android:contentDescription="@string/add_button_desc"
+            android:src="@drawable/ic_save" />
     </LinearLayout>
 
 

@@ -11,7 +11,7 @@
     <string name="mujer">Mujer</string>
     <string name="personas">Personas</string>
     <string name="direcciones">Direcciones</string>
-    <string name="buscar">Buscar</string>
+    <string name="buscar">Buscar...</string>
     <string name="buscar_desc">Buscar un ítem de la lista.</string>
     <string name="editar">Editar</string>
     <string name="editar_desc">Editar el ítem seleccionado.</string>
@@ -41,4 +41,7 @@
     <string name="end_3">Toque en cualquier lado para volver.</string>
     <string name="appbar_select_data">Seleccione sus datos</string>
     <string name="button_continue">Continuar</string>
+    <string name="title_not_found">TITLE ERROR!</string>
+    <string name="permisos">Permisos</string>
+
 </resources>

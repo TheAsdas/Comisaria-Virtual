@@ -1,25 +1,26 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="searchViewStyle">@style/CustomSearchView</item>
     </style>
 
     <style name="GreenButton" parent="Widget.MaterialComponents.Button">
         <item name="android:backgroundTint">#007328</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="cornerFamily">rounded</item>
-        <item name="cornerRadius">100px</item>
+        <item name="cornerRadius">100dp</item>
         <item name="iconSize">30dp</item>
     </style>
 
     <style name="OutlinedGreenButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="strokeColor">@color/colorPrimaryDark</item>
-        <item name="strokeWidth">5px</item>
+        <item name="strokeWidth">3dp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="cornerRadius">100px</item>
+        <item name="cornerRadius">100dp</item>
         <item name="android:textColor">@color/colorGray</item>
         <item name="iconTint">@color/colorPrimaryDark</item>
         <item name="iconSize">30dp</item>
@@ -34,7 +35,8 @@
         <item name="backgroundTint">@color/colorPrimaryDark</item>
     </style>
 
-    <style name="ExtendedFloatingButtonStyle" parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
+    <style name="ExtendedFloatingButtonStyle"
+        parent="Widget.MaterialComponents.ExtendedFloatingActionButton">
         <item name="tint">@color/colorWhite</item>
         <item name="backgroundTint">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/colorWhite</item>
@@ -43,7 +45,7 @@
     <style name="NameTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="fontFamily">@font/roboto</item>
-        <item name="android:textSize">35dp</item>
+        <item name="android:textSize">35sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:layout_gravity">center</item>
@@ -53,7 +55,7 @@
     <style name="RutTextStyle">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="fontFamily">@font/roboto</item>
-        <item name="android:textSize">21dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:layout_gravity">center</item>
     </style>
@@ -61,7 +63,7 @@
     <style name="SmallTitle">
         <item name="android:textColor">@color/colorGray</item>
         <item name="fontFamily">@font/roboto</item>
-        <item name="android:textSize">30dp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textAlignment">center</item>
@@ -70,7 +72,7 @@
     <style name="SmallSubtitle">
         <item name="android:textColor">@color/colorGray</item>
         <item name="fontFamily">@font/roboto</item>
-        <item name="android:textSize">30dp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textAlignment">center</item>
@@ -79,7 +81,7 @@
     <style name="InfoTitle">
         <item name="android:textColor">@color/colorAccent</item>
         <item name="fontFamily">@font/roboto</item>
-        <item name="android:textSize">35dp</item>
+        <item name="android:textSize">35sp</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textAlignment">center</item>
@@ -89,7 +91,7 @@
     <style name="InfoText">
         <item name="android:textColor">@color/colorGray</item>
         <item name="fontFamily">@font/roboto</item>
-        <item name="android:textSize">25dp</item>
+        <item name="android:textSize">25sp</item>
         <item name="android:layout_margin">5dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textAlignment">center</item>
@@ -105,5 +107,16 @@
         <item name="android:layout_marginRight">30dp</item>
         <item name="android:textAlignment">center</item>
     </style>
+
+    <style name="CustomSearchView" parent="android:Theme.Holo">
+        <item name="searchIcon">@drawable/ic_small_search</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="queryBackground">@null</item>
+        <item name="searchHintIcon">@null</item>
+        <item name="editTextColor">@color/colorWhite</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="hintTextColor">@color/colorWhite</item>
+    </style>
+
 
 </resources>

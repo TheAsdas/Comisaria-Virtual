@@ -43,7 +43,7 @@
         android:gravity="center"
     >
         <Button
-            android:id="@+id/gotoPermisos"
+            android:id="@+id/buttonPermisos"
             app:icon="@drawable/ic_permiso"
             android:text="Sacar permiso"
             android:layout_width="match_parent"
@@ -51,15 +51,14 @@
         />
 
         <Button
-            android:id="@+id/gotoPersonas"
+            android:id="@+id/buttonPersonas"
             style="@style/OutlinedGreenButton"
             android:layout_width="match_parent"
-            android:onClick="gotoPersonas"
             android:text="Personas"
             app:icon="@drawable/ic_personas" />
 
         <Button
-            android:id="@+id/gotoDirecciones"
+            android:id="@+id/buttonDirecciones"
             android:layout_width="match_parent"
             android:text="Mis direcciones"
             app:icon="@drawable/ic_direcciones"

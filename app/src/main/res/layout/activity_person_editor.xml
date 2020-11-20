@@ -176,7 +176,8 @@
             android:rotation="0"
             android:rotationX="0"
             android:rotationY="0"
-            android:scaleX="2"
+            android:scaleX="1"
+            android:scaleY="1"
             android:src="@drawable/ic_save" />
     </LinearLayout>
 

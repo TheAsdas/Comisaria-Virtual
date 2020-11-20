@@ -2,10 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/add"
-        android:icon="@drawable/ic_small_search"
+        android:id="@+id/appbar_search"
         android:title="@string/buscar"
-        android:contentDescription="@string/buscar_desc"
-        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_small_search"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         />
+
 </menu>

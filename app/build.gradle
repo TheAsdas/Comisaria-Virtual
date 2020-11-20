@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "cl.example.comisariaVirtual"
+        applicationId "cl.carabineros.comisariaVirtual"
         minSdkVersion 22
         targetSdkVersion 30
         versionCode 1
