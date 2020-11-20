@@ -39,7 +39,7 @@ class ListViewer : AppCompatActivity() {
     {
         configureToolbar();
         defineTitle();
-        //configureFloatingButton();
+        configureFloatingButton();
         if (toolbar.title == "¡ERROR!") addPlaceholders();
     }
 
@@ -102,12 +102,7 @@ class ListViewer : AppCompatActivity() {
      */
     private fun configureFloatingButton()
     {
-        when (title)
-        {
-            getString(R.string.direcciones) -> addButton.setOnClickListener{ ActivityMethods.goTo<AddressEditor>(this) };
-            getString(R.string.personas) -> addButton.setOnClickListener{ ActivityMethods.goTo<PersonEditor>(this) }
-            else -> addButton.hide();
-        }
+        if (title == getString(R.string.permisos)) addButton.hide();
     }
 
     /**
