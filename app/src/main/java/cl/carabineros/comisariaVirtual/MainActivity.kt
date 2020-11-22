@@ -2,6 +2,7 @@ package cl.carabineros.comisariaVirtual
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import cl.carabineros.utils.ActivityMethods
 import cl.example.comisariaVirtual.R
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         configureButton<ListViewer>(
             buttonPersonas,
-            mapOf("title" to resources.getString(R.string.direcciones))
+            mapOf("title" to resources.getString(R.string.personas))
         );
 
         configureButton<ListViewer>(

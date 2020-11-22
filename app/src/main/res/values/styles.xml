@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="searchViewStyle">@style/CustomSearchView</item>
+        <item name="materialButtonOutlinedStyle">@style/OutlinedGreenButton</item>
     </style>
 
     <style name="GreenButton" parent="Widget.MaterialComponents.Button">

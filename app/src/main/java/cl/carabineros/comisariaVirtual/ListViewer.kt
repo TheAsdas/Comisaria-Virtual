@@ -74,7 +74,7 @@ class ListViewer : AppCompatActivity() {
         {
             getString(R.string.direcciones) -> setDestination<AddressEditor>()
             getString(R.string.personas) -> setDestination<PersonEditor>()
-            else -> throw Exception("Destination invalid");
+            else -> addButton.hide();
         }
     }
 
