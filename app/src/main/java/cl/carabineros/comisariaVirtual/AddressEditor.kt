@@ -7,7 +7,7 @@ import cl.example.comisariaVirtual.R
 
 class AddressEditor : AppCompatActivity()
 {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?)
+    override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_editor);
