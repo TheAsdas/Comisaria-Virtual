@@ -25,7 +25,7 @@ class ListViewer : AppCompatActivity() {
         configureToolbar();
         defineTitle();
         configureFloatingButton();
-        if (toolbar.title == "¡ERROR!") addPlaceholders();
+        addPlaceholders();
     }
 
     private fun configureToolbar()

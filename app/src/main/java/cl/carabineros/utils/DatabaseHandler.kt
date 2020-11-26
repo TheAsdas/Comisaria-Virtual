@@ -1,10 +1,12 @@
-package cl.carabineros.model
+package cl.carabineros.utils
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import cl.carabineros.model.Direccion
+import cl.carabineros.model.Persona
 
 class DatabaseHandler
     (context: Context)
@@ -107,7 +109,8 @@ class DatabaseHandler
         {
             do
             {
-                list.add(Persona(
+                list.add(
+                    Persona(
                     cursor.getColumnIndex(persona_id),
                     cursor.getString(cursor.getColumnIndex(persona_nombre)),
                     cursor.getString(cursor.getColumnIndex(persona_segundoNombre)),
@@ -121,7 +124,8 @@ class DatabaseHandler
                     cursor.getString(cursor.getColumnIndex(persona_direccion)),
                     cursor.getString(cursor.getColumnIndex(persona_claveUnica)),
                     cursor.getString(cursor.getColumnIndex(persona_correo))
-                ));
+                )
+                );
             } while (cursor.moveToNext())
         }
 
@@ -152,14 +156,16 @@ class DatabaseHandler
         {
             do
             {
-              list.add(Direccion(
+              list.add(
+                  Direccion(
                   cursor.getColumnIndex(direccion_id),
                   cursor.getString(cursor.getColumnIndex(direccion_nombreLugar)),
                   cursor.getInt(cursor.getColumnIndex(direccion_tipo)),
                   cursor.getInt(cursor.getColumnIndex(direccion_region)),
                   cursor.getInt(cursor.getColumnIndex(direccion_comuna)),
                   cursor.getString(cursor.getColumnIndex(direccion_direccion))
-              ));
+              )
+              );
             } while (cursor.moveToNext());
         }
 
