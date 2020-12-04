@@ -7,6 +7,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="searchViewStyle">@style/CustomSearchView</item>
         <item name="materialButtonOutlinedStyle">@style/OutlinedGreenButton</item>
+        <item name="spinnerStyle">@style/SpinnerStyle</item>
     </style>
 
     <style name="GreenButton" parent="Widget.MaterialComponents.Button">
@@ -117,6 +118,12 @@
         <item name="editTextColor">@color/colorWhite</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="hintTextColor">@color/colorWhite</item>
+    </style>
+
+    <style name="SpinnerStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/roboto</item>
+
     </style>
 
 

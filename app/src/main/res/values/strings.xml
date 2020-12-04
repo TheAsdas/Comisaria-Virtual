@@ -43,8 +43,8 @@
     <string name="button_continue">Continuar</string>
     <string name="title_not_found">TITLE ERROR!</string>
     <string name="permisos">Permisos</string>
-    <string name="hint_input_region">Seleccione su región.</string>
-    <string name="hint_input_commune">Seleccione su comuna.</string>
+    <string name="hint_select_region">Seleccione su región.</string>
+    <string name="hint_select_commune">Seleccione su comuna.</string>
     <string name="hint_input_address">Escriba acá la dirección.</string>
 
 </resources>
