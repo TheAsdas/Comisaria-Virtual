@@ -12,6 +12,5 @@ class Persona(
     var region: Int,
     var comuna: Int,
     var direccion: String,
-    var claveUnica: String,
     var correo: String
 )

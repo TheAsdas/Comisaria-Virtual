@@ -93,7 +93,6 @@ class DatabaseHandler
         content.put(persona_region, p.region);
         content.put(persona_comuna, p.comuna);
         content.put(persona_direccion, p.direccion);
-        content.put(persona_claveUnica, p.claveUnica);
         content.put(persona_correo, p.correo);
 
         return this.writableDatabase.insert(tabla_personas, null, content);
@@ -111,7 +110,7 @@ class DatabaseHandler
             {
                 list.add(
                     Persona(
-                    cursor.getColumnIndex(persona_id),
+                    cursor.getInt(cursor.getColumnIndex(persona_id)),
                     cursor.getString(cursor.getColumnIndex(persona_nombre)),
                     cursor.getString(cursor.getColumnIndex(persona_segundoNombre)),
                     cursor.getString(cursor.getColumnIndex(persona_apellidoPaterno)),
@@ -123,7 +122,6 @@ class DatabaseHandler
                     cursor.getInt(cursor.getColumnIndex(persona_comuna)),
                     cursor.getString(cursor.getColumnIndex(persona_direccion)),
                     cursor.getString(cursor.getColumnIndex(persona_claveUnica)),
-                    cursor.getString(cursor.getColumnIndex(persona_correo))
                 )
                 );
             } while (cursor.moveToNext())
@@ -158,7 +156,7 @@ class DatabaseHandler
             {
               list.add(
                   Direccion(
-                  cursor.getColumnIndex(direccion_id),
+                  cursor.getInt(cursor.getColumnIndex(direccion_id)),
                   cursor.getString(cursor.getColumnIndex(direccion_nombreLugar)),
                   cursor.getInt(cursor.getColumnIndex(direccion_tipo)),
                   cursor.getInt(cursor.getColumnIndex(direccion_region)),

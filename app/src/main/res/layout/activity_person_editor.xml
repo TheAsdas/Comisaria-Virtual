@@ -75,12 +75,14 @@
             android:layout_height="match_parent"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addButton"
             style="@style/FloatingButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="-80dp"
             android:contentDescription="@string/add_button_desc"
+            android:onClick="addPerson"
             android:rotation="0"
             android:rotationX="0"
             android:rotationY="0"
