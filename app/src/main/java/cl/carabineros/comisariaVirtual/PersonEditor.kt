@@ -3,22 +3,17 @@ package cl.carabineros.comisariaVirtual
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import cl.carabineros.comisariaVirtual.api.RegionsApi
 import cl.carabineros.comisariaVirtual.tabFragments.TabAddressAndPerson2
 import cl.carabineros.comisariaVirtual.tabFragments.TabPerson1
-import cl.carabineros.model.Sector
+import cl.carabineros.model.*
 import cl.carabineros.utils.TabMethods
 import cl.example.comisariaVirtual.R
 import kotlinx.android.synthetic.main.activity_person_editor.*
 import kotlinx.android.synthetic.main.tab_person_and_address_2.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
 class PersonEditor : AppCompatActivity()
@@ -26,6 +21,9 @@ class PersonEditor : AppCompatActivity()
     private lateinit var retrofit: Retrofit;
     private lateinit var service: RegionsApi;
     private lateinit var context: Context;
+
+    private var selectedRegion: Region? = null;
+    private var selectedCommune: Comuna? = null;
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -50,7 +48,7 @@ class PersonEditor : AppCompatActivity()
     {
         //init retrofit
         retrofit = Retrofit.Builder()
-            .baseUrl("http://apis.modernizacion.cl/dpa/")
+            .baseUrl("https://www.cofralit.cl/desarrollo/Api/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
         //init service
@@ -84,18 +82,11 @@ class PersonEditor : AppCompatActivity()
 
     private fun configureRegionsMenu()
     {
-
         val regionCall = service.getRegions();
 
-        regionCall.enqueue(object : Callback<ArrayList<Sector>> {
-            /**
-            On failure, show Toast with an error message.
-
-            @param call
-            @param t
-             **/
+        regionCall.enqueue(object : Callback<Regiones> {
             override fun onFailure(
-                call: Call<ArrayList<Sector>>,
+                call: Call<Regiones>,
                 t: Throwable
             ) {
                 Toast.makeText(
@@ -108,59 +99,107 @@ class PersonEditor : AppCompatActivity()
             }
 
             override fun onResponse(
-                call: Call<ArrayList<Sector>>,
-                response: Response<ArrayList<Sector>>)
+                call: Call<Regiones>,
+                response: Response<Regiones>)
             {
+                //get the list with regions from response
+                val regionList = response.body()!!.Regiones;
+                //delete last item from ArrayList
+                regionList.removeAt(regionList.size - 1);
+                //create ArrayAdapter for the list
                 val adapter = ArrayAdapter(
                     context,
                     R.layout.layout_list_item,
-                    response.body()!!
+                    regionList
                 );
+                //set ArrayAdapter
                 selectRegion.setAdapter(adapter);
 
+                /* When a Region from the list is selected, it will load the Communes of said
+                Region. */
                 selectRegion.setOnItemClickListener {
                         adapterView: AdapterView<*>,
-                        view1: View,
+                        _: View,
                         index: Int,
-                        l: Long ->
-                    val selectedItem = adapterView.getItemAtPosition(index) as Sector;
+                        _: Long ->
+                    selectedRegion = adapterView.getItemAtPosition(index) as Region;
 
                     //debug message:
-                    println("Seleccionaste $selectedItem, cuya ID es ${selectedItem.codigo}");
+                    println("Seleccionaste $selectedRegion, cuya ID es ${selectedRegion?.IdRegion}");
 
-                    loadCommunes(selectedItem);
+                    //clear previously selected Commune
+                    selectCommune.clearListSelection();
+                    selectCommune.setText("");
+                    selectedCommune = null;
+
+                    loadCommunes(selectedRegion!!);
                 }
             }
         });
     }
 
-    private fun loadCommunes(sector: Sector)
+    /**
+     * Load communes from the region selected by the user.
+     *
+     * @param region Region selected by the user.
+     */
+    private fun loadCommunes(region: Region)
     {
-        val communeCall = service.getCommunesOfRegion(sector.codigo);
+        val communeCall = service.getCommunesOfRegion(region.IdRegion);
 
-        communeCall.enqueue(object : Callback<ArrayList<Sector>> {
+        communeCall.enqueue(object : Callback<ArrayList<Comuna>> {
             override fun onFailure(
-                call: Call<ArrayList<Sector>>,
+                call: Call<ArrayList<Comuna>>,
                 t: Throwable)
             {
+                //show error Toast
                 Toast.makeText(
-                    context, "Error al cargar las comunas de $sector",
+                    context, "Error al cargar las comunas de $region",
                     Toast.LENGTH_SHORT
                 ).show();
 
+                //set an empty ArrayList
+                val adapter = ArrayAdapter(
+                    context,
+                    R.layout.layout_list_item,
+                    ArrayList<Regiones>());
+                selectCommune.setAdapter(adapter);
+
+                //clear previously selected Commune
+                selectCommune.clearListSelection();
+                selectCommune.setText("");
+                selectedCommune = null;
+
+                //print error message in console
                 t.printStackTrace();
             }
 
             override fun onResponse(
-                call: Call<ArrayList<Sector>>,
-                response: Response<ArrayList<Sector>>)
+                call: Call<ArrayList<Comuna>>,
+                response: Response<ArrayList<Comuna>>)
             {
+                //extract commune list from response
+                val communesList = response.body()!!;
+
+                //create ArrayAdapter for the list
                 val adapter = ArrayAdapter(
                     context,
                     R.layout.layout_list_item,
-                    response.body()!!
+                    communesList
                 );
+
+                //set ArrayAdapter
                 selectCommune.setAdapter(adapter);
+
+                //When an item from the list is selected, this item is saved in memory.
+                selectCommune.setOnItemClickListener{
+                        adapterView: AdapterView<*>,
+                        _: View,
+                        i: Int,
+                        _: Long ->
+                    selectedCommune = adapterView.getItemAtPosition(i) as Comuna;
+                }
+
             }
         });
     }

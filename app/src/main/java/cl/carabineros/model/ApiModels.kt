@@ -13,16 +13,23 @@ package cl.carabineros.model
  * @property codigo_padre Parent code of the region.
  * @constructor Create empty Sector
  */
-data class Sector(
-    var codigo: Int,
-    var tipo: String,
-    var nombre: String,
-    var lat: Float,
-    var lng: Float,
-    var url: String,
-    var codigo_padre: Int)
+class Regiones(
+    var Regiones: ArrayList<Region>)
+
+class Region(
+    var IdRegion: Int,
+    var NombreRegion: String)
 {
     override fun toString(): String {
-        return nombre;
+        return this.NombreRegion;
+    }
+}
+
+class Comuna(
+    var IdCiudad: Int,
+    var Ciudad: String)
+{
+    override fun toString(): String {
+        return this.Ciudad;
     }
 }

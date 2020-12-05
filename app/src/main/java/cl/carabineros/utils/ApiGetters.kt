@@ -1,13 +1,13 @@
 package cl.carabineros.utils
 
 import cl.carabineros.comisariaVirtual.api.RegionsApi
-import cl.carabineros.model.Sector
+import cl.carabineros.model.Regiones
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiGetters {
-    fun getRegions(): ArrayList<Sector>? {
-        val regions = ArrayList<Sector>();
+    fun getRegions(): ArrayList<Regiones>? {
+        val regions = ArrayList<Regiones>();
 
 
         val retrofit = Retrofit.Builder()
