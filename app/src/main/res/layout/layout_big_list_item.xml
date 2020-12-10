@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="10sp"
+    android:paddingBottom="10sp">
+        <ImageView
+            android:id="@+id/listIcon"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:src="@drawable/ic_big_person"
+            android:contentDescription="@string/list_icon_desc"
+            app:tint="@color/colorGray"
+            android:layout_marginLeft="20sp"/>
+        <LinearLayout
+            android:layout_marginStart="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="start|center">
+
+            <TextView
+                style="@style/ListTitle"
+                android:id="@+id/listTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/long_placeholder"/>
+            <TextView
+                android:id="@+id/listSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/short_placeholder"
+                />
+        </LinearLayout>
+
+
+</LinearLayout>

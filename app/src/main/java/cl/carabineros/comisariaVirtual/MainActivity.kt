@@ -1,15 +1,15 @@
 package cl.carabineros.comisariaVirtual
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import cl.carabineros.utils.ActivityMethods
 import cl.example.comisariaVirtual.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 

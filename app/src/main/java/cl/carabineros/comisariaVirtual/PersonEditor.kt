@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.tab_person_1.*
 import kotlinx.android.synthetic.main.tab_person_and_address_2.*
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PersonEditor : AppCompatActivity()
 {
@@ -31,7 +33,7 @@ class PersonEditor : AppCompatActivity()
     private var lastNames: String? = null;
     private var rut: String? = null;
     private var rutId: String? = null;
-    private var gender: Boolean? = null;
+    private var gender: Int? = null;
     private var address: String? = null;
     private var mail: String? = null;
     private var selectedRegion: Region? = null;
@@ -223,7 +225,15 @@ class PersonEditor : AppCompatActivity()
         if (inputsAreCorrect())
         {
             person = createPerson();
-            //DatabaseHandler(this).insertPersona(person);
+            DatabaseHandler(this).insertPersona(person);
+
+            Toast.makeText(
+                this,
+                "Persona agregada.",
+                Toast.LENGTH_SHORT
+            ).show();
+
+            this.finish();
         }
         else
         {
@@ -287,7 +297,7 @@ class PersonEditor : AppCompatActivity()
         mail = checkAndGetTextInput(
             inputMail,
             Regex(
-                "^[a-z0-9]+@[a-z0-9]+\\.[a-z]+\$",
+                "^[a-z0-9._\\-]+@[a-z0-9]+\\.[a-z]+\$",
                 RegexOption.IGNORE_CASE
             ),
             "Ingrese su mail con @ y dominio (.cl - .com - etc...)."
@@ -304,7 +314,7 @@ class PersonEditor : AppCompatActivity()
         println("apellidos: $lastNames");
         println("rut: $rut");
         println("num documento: $rutId");
-        println("sexo: ${if(gender!!) "mujer" else "hombre"}");
+        println("sexo: ${if(gender == 0) "mujer" else if (gender == 1) "hombre" else "null"}");
         println("dirección: $address");
         println("e-mail: $mail");
         println("region: ${selectedRegion?.NombreRegion}");
@@ -343,12 +353,12 @@ class PersonEditor : AppCompatActivity()
         return null;
     }
 
-    private fun getGender(): Boolean?
+    private fun getGender(): Int?
     {
         if (radioMale.isChecked)
-            return false;
+            return 1;
         else if (radioFemale.isChecked)
-            return true;
+            return 0;
 
         return null;
     }
@@ -356,19 +366,18 @@ class PersonEditor : AppCompatActivity()
     private fun createPerson(): Persona
     {
         return Persona(
-            1,
-            "null",
-            "null",
-            "null",
-            "null",
-            "null",
-            "null",
             0,
-            0,
-            0,
-            "null",
-            "null",
-            "null"
+            names!!.split(" ")[0].toUpperCase(Locale.ROOT),
+            names!!.split(" ")[1].toUpperCase(Locale.ROOT),
+            lastNames!!.split(" ")[0].toUpperCase(Locale.ROOT),
+            lastNames!!.split(" ")[1].toUpperCase(Locale.ROOT),
+            rut!!.toUpperCase(Locale.ROOT),
+            rutId!!,
+            gender!!,
+            selectedRegion!!.IdRegion,
+            selectedCommune!!.IdCiudad,
+            address!!.toUpperCase(Locale.ROOT),
+            mail!!.toUpperCase(Locale.ROOT)
         );
     }
 

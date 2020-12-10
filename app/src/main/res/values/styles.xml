@@ -126,5 +126,20 @@
 
     </style>
 
+    <style name="ListTitle">
+        <item name="android:textSize">20sp</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Widget.App.ActionMode" parent="Widget.AppCompat.ActionMode">
+        <item name="titleTextStyle">@style/SmallTitle</item>
+        <item name="subtitleTextStyle">?attr/textAppearanceSubtitle1</item>
+        <item name="background">@color/colorWhite</item>
+    </style>
+
+    <style name="AppbarTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="colorControlNormal">@color/colorPrimary</item>
+        <item name="titleTextColor">@color/colorWhite</item>
+    </style>
 
 </resources>

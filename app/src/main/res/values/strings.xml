@@ -47,5 +47,6 @@
     <string name="hint_select_commune">Seleccione su comuna.</string>
     <string name="hint_input_address">Escriba acá la dirección.</string>
     <string name="input_mail">Correo electrónico</string>
-
+    <string name="list_icon_desc">Ícono que muestra el sexo del individuo.</string>
+    <string name="actionbar_delete">Eliminar</string>
 </resources>

@@ -15,7 +15,7 @@ class DatabaseHandler
     companion object
     {
         private var dbName = "dbCarabineros";
-        private var dbVersion = 1;
+        private var dbVersion = 5;
 
         /* Tabla de personas */
         private var tabla_personas = "personas";
@@ -30,7 +30,6 @@ class DatabaseHandler
         private var persona_region = "region";
         private var persona_comuna = "comuna";
         private var persona_direccion = "direccion";
-        private var persona_claveUnica = "clave_unica";
         private var persona_correo = "email";
 
         /* Tabla de direcciones */
@@ -45,39 +44,47 @@ class DatabaseHandler
 
     }
 
-    override fun onCreate(p0: SQLiteDatabase?) {
+    override fun onCreate(p0: SQLiteDatabase?)
+    {
+        println("Creando base de datos...");
+
         val creationQuery: String =
             "CREATE TABLE $tabla_personas (" +
                     "$persona_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "$persona_nombre TEXT NOT NULL, " +
-                    "$persona_segundoNombre TEXT NOT NULL, " +
-                    "$persona_apellidoPaterno TEXT NOT NULL, " +
-                    "$persona_apellidoMaterno TEXT NOT NULL, " +
-                    "$persona_rut TEXT NOT NULL, " +
-                    "$persona_numeroSerie TEXT NOT NULL, " +
-                    "$persona_genero INTEGER NOT NULL, " +
-                    "$persona_region INTEGER NOT NULL, " +
-                    "$persona_comuna INTEGER NOT NULL, " +
-                    "$persona_direccion TEXT NOT NULL, " +
-                    "$persona_claveUnica TEXT NOT NULL, " +
-                    "$persona_correo TEXT NOT NULL )" +
+                    "$persona_nombre TEXT, " +
+                    "$persona_segundoNombre TEXT, " +
+                    "$persona_apellidoPaterno TEXT, " +
+                    "$persona_apellidoMaterno TEXT, " +
+                    "$persona_rut TEXT, " +
+                    "$persona_numeroSerie TEXT, " +
+                    "$persona_genero INTEGER, " +
+                    "$persona_region INTEGER, " +
+                    "$persona_comuna INTEGER, " +
+                    "$persona_direccion TEXT, " +
+                    "$persona_correo TEXT); " +
             "CREATE TABLE $tabla_direcciones (" +
                     "$direccion_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "$direccion_nombreLugar TEXT NOT NULL, " +
-                    "$direccion_tipo INTEGER NOT NULL, " +
-                    "$direccion_region TEXT NOT NULL, " +
-                    "$direccion_comuna TEXT NOT NULL, " +
-                    "$direccion_direccion TEXT NOT NULL )"
+                    "$direccion_nombreLugar TEXT, " +
+                    "$direccion_tipo INTEGER, " +
+                    "$direccion_region TEXT, " +
+                    "$direccion_comuna TEXT, " +
+                    "$direccion_direccion TEXT); "
 
         p0!!.execSQL(creationQuery);
+
+        println("Base de datos creada.")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        println("Actualizando base de datos...");
+
         val deletionQuery: String =
-            "DROP TABLE IF EXISTS $tabla_personas " +
-            "DROP TABLE IF EXISTS $tabla_direcciones ";
+            "DROP TABLE IF EXISTS $tabla_personas ;" +
+            "DROP TABLE IF EXISTS $tabla_direcciones ;";
 
         db!!.execSQL(deletionQuery);
+
+        onCreate(db);
     }
 
     fun insertPersona(p: Persona): Long
@@ -87,6 +94,24 @@ class DatabaseHandler
         content.put(persona_segundoNombre, p.segundoNombre);
         content.put(persona_apellidoPaterno, p.apellidoPaterno);
         content.put(persona_apellidoMaterno, p.apellidoMaterno);
+        content.put(persona_rut, p.rut);
+        content.put(persona_numeroSerie, p.numeroSerie);
+        content.put(persona_genero, p.genero);
+        content.put(persona_region, p.region);
+        content.put(persona_comuna, p.comuna);
+        content.put(persona_direccion, p.direccion);
+        content.put(persona_correo, p.correo);
+
+        return this.writableDatabase.insert(tabla_personas, null, content);
+    }
+
+    fun insertPersona(p: Persona, materno: String): Long
+    {
+        val content = ContentValues();
+        content.put(persona_nombre, p.nombre);
+        content.put(persona_segundoNombre, p.segundoNombre);
+        content.put(persona_apellidoPaterno, p.apellidoPaterno);
+        content.put(persona_apellidoMaterno, materno);
         content.put(persona_rut, p.rut);
         content.put(persona_numeroSerie, p.numeroSerie);
         content.put(persona_genero, p.genero);
@@ -110,19 +135,19 @@ class DatabaseHandler
             {
                 list.add(
                     Persona(
-                    cursor.getInt(cursor.getColumnIndex(persona_id)),
-                    cursor.getString(cursor.getColumnIndex(persona_nombre)),
-                    cursor.getString(cursor.getColumnIndex(persona_segundoNombre)),
-                    cursor.getString(cursor.getColumnIndex(persona_apellidoPaterno)),
-                    cursor.getString(cursor.getColumnIndex(persona_apellidoMaterno)),
-                    cursor.getString(cursor.getColumnIndex(persona_rut)),
-                    cursor.getString(cursor.getColumnIndex(persona_numeroSerie)),
-                    cursor.getInt(cursor.getColumnIndex(persona_genero)),
-                    cursor.getInt(cursor.getColumnIndex(persona_region)),
-                    cursor.getInt(cursor.getColumnIndex(persona_comuna)),
-                    cursor.getString(cursor.getColumnIndex(persona_direccion)),
-                    cursor.getString(cursor.getColumnIndex(persona_claveUnica)),
-                )
+                        cursor.getInt(cursor.getColumnIndex(persona_id)),
+                        cursor.getString(cursor.getColumnIndex(persona_nombre)),
+                        cursor.getString(cursor.getColumnIndex(persona_segundoNombre)),
+                        cursor.getString(cursor.getColumnIndex(persona_apellidoPaterno)),
+                        cursor.getString(cursor.getColumnIndex(persona_apellidoMaterno)),
+                        cursor.getString(cursor.getColumnIndex(persona_rut)),
+                        cursor.getString(cursor.getColumnIndex(persona_numeroSerie)),
+                        cursor.getInt(cursor.getColumnIndex(persona_genero)),
+                        cursor.getInt(cursor.getColumnIndex(persona_region)),
+                        cursor.getInt(cursor.getColumnIndex(persona_comuna)),
+                        cursor.getString(cursor.getColumnIndex(persona_direccion)),
+                        cursor.getString(cursor.getColumnIndex(persona_correo))
+                    )
                 );
             } while (cursor.moveToNext())
         }

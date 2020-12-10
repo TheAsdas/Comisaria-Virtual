@@ -1,9 +1,17 @@
 package cl.carabineros.comisariaVirtual
 
 import android.os.Bundle
+
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.ActionMode
+import cl.carabineros.adapters.BigItemAdapter
+import cl.carabineros.model.BigItem
+import cl.carabineros.model.Persona
 import cl.carabineros.utils.ActivityMethods
+import cl.carabineros.utils.DatabaseHandler
 import cl.example.comisariaVirtual.R
 import kotlinx.android.synthetic.main.activity_list_viewer.*
 
@@ -15,9 +23,13 @@ class ListViewer : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_viewer)
-
+        setContentView(R.layout.activity_list_viewer);
         configureActivity();
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadDbData();
     }
 
     private fun configureActivity()
@@ -25,7 +37,8 @@ class ListViewer : AppCompatActivity() {
         configureToolbar();
         defineTitle();
         configureFloatingButton();
-        addPlaceholders();
+        loadDbData();
+
     }
 
     private fun configureToolbar()
@@ -88,4 +101,26 @@ class ListViewer : AppCompatActivity() {
 
         addButton.setOnClickListener { ActivityMethods.goTo<Any>(this) };
     }
+
+    private fun loadDbData()
+    {
+        val listPersonas = DatabaseHandler(this).selectPersonas() as ArrayList<Persona>;
+
+        println("Lista: ")
+        for (person in listPersonas)
+        {
+            println(person.nombre + " " + person.apellidoPaterno);
+        }
+
+        val adapter = BigItemAdapter(this, BigItem.parseListToBigItem(listPersonas));
+        itemList.adapter = adapter;
+    }
+
+
+
+
+
+
 }
+
+
