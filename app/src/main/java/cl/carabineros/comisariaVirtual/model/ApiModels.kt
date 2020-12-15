@@ -1,4 +1,4 @@
-package cl.carabineros.model
+package cl.carabineros.comisariaVirtual.model
 
 /**
  * Sector: this class is the objects received through the API. They represent a sector

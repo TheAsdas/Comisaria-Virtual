@@ -1,7 +1,7 @@
 package cl.carabineros.comisariaVirtual.api;
 
-import cl.carabineros.model.Comuna
-import cl.carabineros.model.Regiones;
+import cl.carabineros.comisariaVirtual.model.Comuna
+import cl.carabineros.comisariaVirtual.model.Regiones;
 import retrofit2.Call;
 import retrofit2.http.*;
 

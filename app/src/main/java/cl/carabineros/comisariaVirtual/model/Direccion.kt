@@ -1,4 +1,4 @@
-package cl.carabineros.model
+package cl.carabineros.comisariaVirtual.model
 
 class Direccion(
     var id: Int,

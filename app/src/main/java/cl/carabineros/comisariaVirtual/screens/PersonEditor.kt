@@ -1,4 +1,4 @@
-package cl.carabineros.comisariaVirtual
+package cl.carabineros.comisariaVirtual.screens
 
 import android.content.Context
 import android.os.Bundle
@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import cl.carabineros.comisariaVirtual.api.RegionsApi
 import cl.carabineros.comisariaVirtual.tabFragments.TabAddressAndPerson2
 import cl.carabineros.comisariaVirtual.tabFragments.TabPerson1
-import cl.carabineros.model.*
-import cl.carabineros.utils.DatabaseHandler
-import cl.carabineros.utils.TabMethods
+import cl.carabineros.comisariaVirtual.model.*
+import cl.carabineros.comisariaVirtual.utils.DatabaseHandler
+import cl.carabineros.comisariaVirtual.utils.TabMethods
 import cl.example.comisariaVirtual.R
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_person_editor.*
@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.tab_person_1.*
 import kotlinx.android.synthetic.main.tab_person_and_address_2.*
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -47,6 +48,11 @@ class PersonEditor : AppCompatActivity()
         configureActivity();
     }
 
+    override fun onResume() {
+        super.onResume();
+        configureIncomingPerson();
+    }
+
     private fun configureActivity()
     {
         //init context
@@ -56,7 +62,10 @@ class PersonEditor : AppCompatActivity()
         configureToolbar();
         configureViewPager();
         configureRegionsMenu();
+
     }
+
+
 
     private fun configureApi()
     {
@@ -381,7 +390,40 @@ class PersonEditor : AppCompatActivity()
         );
     }
 
+    private fun configureIncomingPerson()
+    {
+        val incomingPerson: Persona? = try
+        {
+            intent.getSerializableExtra("person") as Persona;
+        }
+        catch (e: Exception)
+        {
+            null;
+        }
 
+        if (incomingPerson != null) fillFields(incomingPerson);
+    }
+
+    private fun fillFields(p: Persona)
+    {
+        val names = "${p.nombre} ${p.segundoNombre}";
+        val lastNames = "${p.apellidoPaterno} ${p.apellidoMaterno}";
+        val rut = p.rut;
+        val rutId = p.numeroSerie;
+        val gender = p.genero;
+        val address = p.direccion;
+        val mail = p.correo;
+
+        this.inputNames.setText(names);
+        inputLastNames.setText(lastNames);
+        inputRut.setText(rut);
+        inputRutId.setText(rutId);
+        if (gender == 1) radioMale.isSelected = true;
+        else radioFemale.isSelected = true;
+        inputAddress.setText(address);
+        inputMail.setText(mail);
+
+    }
 
 }
 

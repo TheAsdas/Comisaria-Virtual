@@ -1,7 +1,7 @@
-package cl.carabineros.utils
+package cl.carabineros.comisariaVirtual.utils
 
 import cl.carabineros.comisariaVirtual.api.RegionsApi
-import cl.carabineros.model.Regiones
+import cl.carabineros.comisariaVirtual.model.Regiones
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingTop="10sp"
-    android:paddingBottom="10sp">
+    android:paddingBottom="10sp"
+    android:animateLayoutChanges="true">
         <ImageView
             android:id="@+id/listIcon"
             android:layout_width="50sp"
@@ -14,7 +15,8 @@
             android:src="@drawable/ic_big_person"
             android:contentDescription="@string/list_icon_desc"
             app:tint="@color/colorGray"
-            android:layout_marginLeft="20sp"/>
+            android:layout_marginStart="20sp"
+            android:layout_gravity="center" />
         <LinearLayout
             android:layout_marginStart="20sp"
             android:layout_width="match_parent"

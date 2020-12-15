@@ -9,4 +9,12 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         />
 
+    <item
+        android:id="@+id/appbar_delete"
+        android:checkable="false"
+        android:checked="false"
+        android:enabled="true"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/actionbar_delete"
+        app:showAsAction="ifRoom" />
 </menu>

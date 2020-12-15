@@ -1,9 +1,9 @@
-package cl.carabineros.comisariaVirtual
+package cl.carabineros.comisariaVirtual.screens
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import cl.carabineros.comisariaVirtual.tabFragments.*
-import cl.carabineros.utils.TabMethods
+import cl.carabineros.comisariaVirtual.utils.TabMethods
 import cl.example.comisariaVirtual.R
 import kotlinx.android.synthetic.main.activity_address_editor.*
 

@@ -1,4 +1,4 @@
-package cl.carabineros.comisariaVirtual
+package cl.carabineros.comisariaVirtual.screens
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

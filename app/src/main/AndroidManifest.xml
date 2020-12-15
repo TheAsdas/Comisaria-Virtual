@@ -11,14 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="cl.carabineros.comisariaVirtual.AddressEditor"/>
-        <activity android:name="cl.carabineros.comisariaVirtual.DataPicker"/>
-        <activity android:name="cl.carabineros.comisariaVirtual.EndScreen" />
-        <activity android:name="cl.carabineros.comisariaVirtual.InfoScreen" />
-        <activity android:name="cl.carabineros.comisariaVirtual.ListViewer" />
-        <activity android:name="cl.carabineros.comisariaVirtual.ItemViewer" />
-        <activity android:name="cl.carabineros.comisariaVirtual.PersonEditor" />
-        <activity android:name="cl.carabineros.comisariaVirtual.MainActivity">
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.AddressEditor"/>
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.DataPicker"/>
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.EndScreen" />
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.InfoScreen" />
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.ListViewer" />
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.ItemViewer" />
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.PersonEditor" />
+        <activity android:name="cl.carabineros.comisariaVirtual.abstraction.ListViewer"/>
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.PersonListViewer"/>
+        <activity android:name="cl.carabineros.comisariaVirtual.screens.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

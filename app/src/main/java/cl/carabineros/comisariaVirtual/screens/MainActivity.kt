@@ -1,9 +1,9 @@
-package cl.carabineros.comisariaVirtual
+package cl.carabineros.comisariaVirtual.screens
 
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import cl.carabineros.utils.ActivityMethods
+import cl.carabineros.comisariaVirtual.utils.ActivityMethods
 import cl.example.comisariaVirtual.R
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
             mapOf("title" to resources.getString(R.string.permisos))
         );
 
-        configureButton<ListViewer>(
+        configureButton<PersonListViewer>(
             buttonPersonas,
             mapOf("title" to resources.getString(R.string.personas))
         );

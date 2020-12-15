@@ -1,6 +1,8 @@
-package cl.carabineros.model
+package cl.carabineros.comisariaVirtual.model
 
-class Persona(
+import java.io.Serializable;
+
+data class Persona(
     var id: Int,
     var nombre: String,
     var segundoNombre: String,
@@ -12,5 +14,10 @@ class Persona(
     var region: Int,
     var comuna: Int,
     var direccion: String,
-    var correo: String
-)
+    var correo: String)
+    : Serializable
+{
+    override fun toString(): String {
+        return "$nombre $apellidoPaterno";
+    }
+}

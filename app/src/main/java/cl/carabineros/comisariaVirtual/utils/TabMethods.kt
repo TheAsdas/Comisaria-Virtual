@@ -1,4 +1,4 @@
-package cl.carabineros.utils
+package cl.carabineros.comisariaVirtual.utils
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
