@@ -1,6 +1,6 @@
 package cl.carabineros.comisariaVirtual.model
 
-class Direccion(
+class Address(
     var id: Int,
     var nombreLugar: String,
     var tipo: Int,

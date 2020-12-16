@@ -2,7 +2,7 @@ package cl.carabineros.comisariaVirtual.model
 
 import java.io.Serializable;
 
-data class Persona(
+data class Person(
     var id: Int,
     var nombre: String,
     var segundoNombre: String,

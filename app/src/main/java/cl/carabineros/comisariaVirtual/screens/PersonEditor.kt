@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import cl.carabineros.comisariaVirtual.api.RegionsApi
 import cl.carabineros.comisariaVirtual.tabFragments.TabAddressAndPerson2
 import cl.carabineros.comisariaVirtual.tabFragments.TabPerson1
@@ -14,7 +15,9 @@ import cl.carabineros.comisariaVirtual.utils.TabMethods
 import cl.example.comisariaVirtual.R
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.android.synthetic.main.activity_person_editor.*
+import kotlinx.android.synthetic.main.tab_address_1.view.*
 import kotlinx.android.synthetic.main.tab_person_1.*
+import kotlinx.android.synthetic.main.tab_person_1.view.*
 import kotlinx.android.synthetic.main.tab_person_and_address_2.*
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,6 +27,10 @@ import kotlin.collections.ArrayList
 
 class PersonEditor : AppCompatActivity()
 {
+    //tabs
+    private lateinit var dataTab: Fragment;
+    private lateinit var addressTab: Fragment;
+
     //Variables for the API
     private lateinit var retrofit: Retrofit;
     private lateinit var service: RegionsApi;
@@ -48,16 +55,12 @@ class PersonEditor : AppCompatActivity()
         configureActivity();
     }
 
-    override fun onResume() {
-        super.onResume();
-        configureIncomingPerson();
-    }
-
     private fun configureActivity()
     {
         //init context
         context = this;
 
+        configureIncomingPerson();
         configureApi();
         configureToolbar();
         configureViewPager();
@@ -86,16 +89,19 @@ class PersonEditor : AppCompatActivity()
     private fun configureViewPager()
     {
         val tabs = TabMethods(supportFragmentManager);
+        dataTab = TabPerson1();
+        addressTab = TabAddressAndPerson2();
+
         tabs.addTab(
             Pair(
                 getString(R.string.data_tab),
-                TabPerson1()
+                dataTab
             )
         );
         tabs.addTab(
             Pair(
                 getString(R.string.address_tab),
-                TabAddressAndPerson2()
+                addressTab
             )
         );
 
@@ -229,7 +235,7 @@ class PersonEditor : AppCompatActivity()
 
     fun addPerson(view: View)
     {
-        val person: Persona;
+        val person: Person;
 
         if (inputsAreCorrect())
         {
@@ -252,8 +258,6 @@ class PersonEditor : AppCompatActivity()
                 Toast.LENGTH_SHORT
             ).show();
         }
-
-
     }
 
     private fun inputsAreCorrect(): Boolean
@@ -372,9 +376,9 @@ class PersonEditor : AppCompatActivity()
         return null;
     }
 
-    private fun createPerson(): Persona
+    private fun createPerson(): Person
     {
-        return Persona(
+        return Person(
             0,
             names!!.split(" ")[0].toUpperCase(Locale.ROOT),
             names!!.split(" ")[1].toUpperCase(Locale.ROOT),
@@ -392,9 +396,9 @@ class PersonEditor : AppCompatActivity()
 
     private fun configureIncomingPerson()
     {
-        val incomingPerson: Persona? = try
+        val incomingPerson: Person? = try
         {
-            intent.getSerializableExtra("person") as Persona;
+            intent.getSerializableExtra("person") as Person;
         }
         catch (e: Exception)
         {
@@ -404,7 +408,7 @@ class PersonEditor : AppCompatActivity()
         if (incomingPerson != null) fillFields(incomingPerson);
     }
 
-    private fun fillFields(p: Persona)
+    private fun fillFields(p: Person)
     {
         val names = "${p.nombre} ${p.segundoNombre}";
         val lastNames = "${p.apellidoPaterno} ${p.apellidoMaterno}";
@@ -414,15 +418,17 @@ class PersonEditor : AppCompatActivity()
         val address = p.direccion;
         val mail = p.correo;
 
-        this.inputNames.setText(names);
-        inputLastNames.setText(lastNames);
-        inputRut.setText(rut);
-        inputRutId.setText(rutId);
-        if (gender == 1) radioMale.isSelected = true;
-        else radioFemale.isSelected = true;
-        inputAddress.setText(address);
-        inputMail.setText(mail);
+        println(names);
+        println(lastNames);
 
+        dataTab.inputNames!!.setText(names);
+        inputLastNames!!.setText(lastNames);
+        inputRut!!.setText(rut);
+        inputRutId!!.setText(rutId);
+        if (gender == 1) radioMale!!.isSelected = true;
+        else radioFemale?.isSelected = true;
+        inputAddress!!.setText(address);
+        inputMail!!.setText(mail);
     }
 
 }

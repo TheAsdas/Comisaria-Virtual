@@ -32,7 +32,7 @@ class BigItem<Any> (
 
             try
             {
-                anyClass = list[0]::class.simpleName;
+                anyClass = list[0]!!::class.simpleName;
             }
             catch (e: Exception)
             {
@@ -45,8 +45,8 @@ class BigItem<Any> (
                 parsedList.add(
                     when (anyClass)
                     {
-                        "Persona" -> createPersona(item as Persona);
-                        "Direccion" -> createDireccion(item as Direccion);
+                        "Person" -> createPersona(item as Person);
+                        "Address" -> createDireccion(item as Address);
                         else -> throw Exception("Type not defined.")
                     }
                 );
@@ -54,12 +54,12 @@ class BigItem<Any> (
             return parsedList;
         }
 
-        fun createDireccion(d: Direccion): BigItem<Direccion>
+        fun createDireccion(d: Address): BigItem<Address>
         {
             TODO();
         }
 
-        private fun createPersona(p: Persona): BigItem<Persona>
+        private fun createPersona(p: Person): BigItem<Person>
         {
             return BigItem(
                 p,

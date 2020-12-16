@@ -15,7 +15,6 @@
         <activity android:name="cl.carabineros.comisariaVirtual.screens.DataPicker"/>
         <activity android:name="cl.carabineros.comisariaVirtual.screens.EndScreen" />
         <activity android:name="cl.carabineros.comisariaVirtual.screens.InfoScreen" />
-        <activity android:name="cl.carabineros.comisariaVirtual.screens.ListViewer" />
         <activity android:name="cl.carabineros.comisariaVirtual.screens.ItemViewer" />
         <activity android:name="cl.carabineros.comisariaVirtual.screens.PersonEditor" />
         <activity android:name="cl.carabineros.comisariaVirtual.abstraction.ListViewer"/>

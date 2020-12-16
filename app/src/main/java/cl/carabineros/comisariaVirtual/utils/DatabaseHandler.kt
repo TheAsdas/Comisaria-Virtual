@@ -5,8 +5,8 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import cl.carabineros.comisariaVirtual.model.Direccion
-import cl.carabineros.comisariaVirtual.model.Persona
+import cl.carabineros.comisariaVirtual.model.Address
+import cl.carabineros.comisariaVirtual.model.Person
 
 class DatabaseHandler
     (context: Context)
@@ -86,7 +86,7 @@ class DatabaseHandler
         onCreate(db);
     }
 
-    fun insertPersona(p: Persona): Long
+    fun insertPersona(p: Person): Long
     {
         val content = ContentValues();
         content.put(tabla1_2, p.nombre);
@@ -104,9 +104,9 @@ class DatabaseHandler
         return this.writableDatabase.insert(tabla1, null, content);
     }
 
-    fun selectPersonas(): ArrayList<Persona>
+    fun selectPersonas(): ArrayList<Person>
     {
-        val list: ArrayList<Persona> = ArrayList();
+        val list: ArrayList<Person> = ArrayList();
         val query = "SELECT * FROM $tabla1";
         val cursor: Cursor? = this.readableDatabase.rawQuery(query, null);
 
@@ -115,7 +115,7 @@ class DatabaseHandler
             do
             {
                 list.add(
-                    Persona(
+                    Person(
                         cursor.getInt(cursor.getColumnIndex(tabla1_1)),
                         cursor.getString(cursor.getColumnIndex(tabla1_2)),
                         cursor.getString(cursor.getColumnIndex(tabla1_3)),
@@ -137,7 +137,7 @@ class DatabaseHandler
         return list;
     }
 
-    fun deletePersona(p: Persona)
+    fun deletePersona(p: Person)
     {
         this.writableDatabase.delete(
             tabla1,
@@ -147,7 +147,7 @@ class DatabaseHandler
     }
 
 
-    fun insertDireccion(d: Direccion): Long
+    fun insertDireccion(d: Address): Long
     {
         val content = ContentValues();
 
@@ -160,9 +160,9 @@ class DatabaseHandler
         return writableDatabase.insert(tabla2, null, content);
     }
 
-    fun selectDirecciones(): List<Direccion>
+    fun selectDirecciones(): List<Address>
     {
-        val list: ArrayList<Direccion> = ArrayList();
+        val list: ArrayList<Address> = ArrayList();
         val query = "SELECT * FROM $tabla2";
         val cursor: Cursor? = readableDatabase.rawQuery(query, null);
 
@@ -171,7 +171,7 @@ class DatabaseHandler
             do
             {
                 list.add(
-                    Direccion(
+                    Address(
                         cursor.getInt(cursor.getColumnIndex(tabla2_1)),
                         cursor.getString(cursor.getColumnIndex(tabla2_2)),
                         cursor.getInt(cursor.getColumnIndex(tabla2_3)),

@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun configureActivity()
     {
-        configureButton<ListViewer>(
+        configureButton<ItemViewer>(
             buttonPermisos,
             mapOf("title" to resources.getString(R.string.permisos))
         );
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             mapOf("title" to resources.getString(R.string.personas))
         );
 
-        configureButton<ListViewer>(
+        configureButton<PersonListViewer>(
             buttonDirecciones,
             mapOf("title" to resources.getString(R.string.direcciones))
         );
